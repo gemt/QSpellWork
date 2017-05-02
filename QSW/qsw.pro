@@ -4,11 +4,11 @@
 #
 #-------------------------------------------------
 
-QT += core gui xml qml widgets webenginewidgets webengine webenginecore concurrent
+QT += core gui xml qml widgets webenginewidgets webengine webenginecore concurrent dbus
 
 TARGET = QSW
 TEMPLATE = app
-CONFIG -= debug_and_release
+CONFIG -= debug_and_release console
 CONFIG += c++11
 DEFINES += __STORMLIB_SELF__ QSW_LIB
 
@@ -130,3 +130,5 @@ win32: {
 
     QMAKE_POST_LINK += windeployqt --no-system-d3d-compiler --no-opengl-sw --no-svg --no-qmltooling $${DESTDIR}$${TARGET}.exe
 }
+DBUS_ADAPTORS += org.example.qsw.cs
+DBUS_INTERFACES += org.example.qsw.cs

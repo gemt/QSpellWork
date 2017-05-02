@@ -8,6 +8,8 @@
 #include "qsw.h"
 #include "mpq/MPQ.h"
 
+#include <QDBusConnection>
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -27,6 +29,10 @@ int main(int argc, char *argv[])
     for (quint8 i = 0; i < 3; ++i) {
         QObject::connect(&app, SIGNAL(aboutToQuit()), form.getBrowser(i), SLOT(deleteLater()));
     }
+
+    QDBusConnection* connection = new QDBusConnection::sessionBus();
+    connection.registerObject("/qsw", car);
+    connection.registerService("org.example.qsw.cs");
 
     return app.exec();
 }

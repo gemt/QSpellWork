@@ -2,6 +2,7 @@
 #include "structure.h"
 #include <QBuffer>
 #include <QSet>
+#include <QDebug>
 
 quint8 m_locale = 0;
 EnumHash m_enums;
@@ -730,9 +731,9 @@ QVariantHash SpellInfo::getValues(quint32 id) const
     values["name"] = spellInfo->name();
     values["rank"] = spellInfo->rank();
     values["nameWithRank"] = spellInfo->nameWithRank();
-    values["description"] = spellInfo->description();
+    values["description"] = //spellInfo->description();
     values["descriptionRegExp"] = getDescription(spellInfo->description(), spellInfo);
-    values["tooltip"] = spellInfo->toolTip();
+    values["tooltip"] = //spellInfo->toolTip();
     values["tooltipRegExp"] = getDescription(spellInfo->toolTip(), spellInfo);
 
     QVariantList parentSpells = getParentSpells(spellInfo->id);
@@ -1023,9 +1024,9 @@ QVariantHash SpellInfo::getValues(quint32 id) const
         {
             effectValues["triggerId"] = triggerSpell->id;
             effectValues["triggerName"] = triggerSpell->nameWithRank();
-            effectValues["triggerDescription"] = triggerSpell->description();
+            effectValues["triggerDescription"] = //triggerSpell->description();
             effectValues["triggerDescriptionRegExp"] = getDescription(triggerSpell->description(), triggerSpell);
-            effectValues["triggerToolTip"] = triggerSpell->toolTip();
+            effectValues["triggerToolTip"] = //triggerSpell->toolTip();
             effectValues["triggerToolTipRegExp"] = getDescription(triggerSpell->toolTip(), triggerSpell);
             effectValues["triggerProcChance"] = triggerSpell->procChance;
             effectValues["triggerProcCharges"] = triggerSpell->procCharges;

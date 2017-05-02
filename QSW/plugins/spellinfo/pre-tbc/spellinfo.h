@@ -7,7 +7,7 @@
 #include "../interface.h"
 
 extern quint8 m_locale;
-
+QImage getSpellIcon(quint32 iconId);
 class SpellInfo : public QObject, SpellInfoInterface
 {
     Q_OBJECT

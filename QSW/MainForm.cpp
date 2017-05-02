@@ -179,6 +179,7 @@ void MainForm::loadSettings(QString pluginName)
     MPQ::mpqDir() = QSW::settings().value("mpqDir", "").toString();
     MPQ::localeDir() = QSW::settings().value("mpqLocaleDir", "").toString();
     DBC::dbcDir() = QSW::settings().value("dbcDir", "").toString();
+    qDebug() << MPQ::mpqDir() << MPQ::localeDir() << DBC::dbcDir();
     QSW::settings().beginGroup("FastFilter");
     findLine_e1->setText(QSW::settings().value("IdOrName", "").toString());
     findLine_e3->setText(QSW::settings().value("Description", "").toString());

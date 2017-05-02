@@ -72,6 +72,7 @@ void SpellWork::loadPlugins()
     pluginsDir.cd("plugins/spellinfo");
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         QPluginLoader pluginLoader(pluginsDir.absoluteFilePath(fileName));
+        qDebug() << pluginLoader.errorString();
         QObject *plugin = pluginLoader.instance();
         if (plugin) {
             SpellInfoInterface* spellInfoPlugin = qobject_cast<SpellInfoInterface *>(plugin);
@@ -278,7 +279,7 @@ void SpellWork::showInfo(quint32 id, QSW::Pages pageId)
     QTextStream stream(&html);
     stream << renderer.render(m_templateHtml, &context);
 
-    html.replace("\n", "");
+    html.replace("\n",  "");
     html.replace("><", ">\n<");
 
     m_form->getPage(pageId)->setInfo(html, id);

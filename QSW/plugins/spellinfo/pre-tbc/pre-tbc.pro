@@ -34,7 +34,7 @@ win32: {
         BUILDTYPE = "Release"
     }
 
-    LIBS += -L$$PWD/../../../../build-qsw/bin/$$PLATFORM/$$BUILDTYPE/ -lQSW
+    LIBS += -L lQSW
 
     DLLDESTDIR = $$PWD/../../../../build-qsw/bin/$$PLATFORM/$$BUILDTYPE/plugins/spellinfo
     DESTDIR = $$DLLDESTDIR
